@@ -1,0 +1,7 @@
+$target-width: 430px;
+$target-height: 932px;
+
+:export {
+  targetWidth: $target-width;
+  targetHeight: $target-height;
+}

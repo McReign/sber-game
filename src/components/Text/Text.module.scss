@@ -1,0 +1,28 @@
+.text {
+  font-family: 'SB Sans Text', sans-serif;
+  color: #495762;
+  font-weight: 400;
+  margin: 0;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.sm {
+  font-size: calc(16px * var(--size-ratio));
+  line-height: calc(18.4px * var(--size-ratio));
+}
+
+.md {
+  font-size: calc(20px * var(--size-ratio));
+  line-height: calc(23px * var(--size-ratio));
+}

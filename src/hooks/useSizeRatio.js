@@ -16,8 +16,8 @@ export function useSizeRatio(elementRef) {
     const targetWidth = parseInt(constants.targetWidth)
     const targetHeight = parseInt(constants.targetHeight)
 
-    const widthRatio = width / targetWidth
-    const heightRatio = height / targetHeight
+    const widthRatio = Math.min(width, targetWidth) / targetWidth
+    const heightRatio = Math.min(height, targetHeight) / targetHeight
 
     const ratio = Math.min(widthRatio, heightRatio)
 

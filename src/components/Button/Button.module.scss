@@ -1,0 +1,21 @@
+.button {
+  padding: calc(10px * var(--size-ratio)) calc(20px * var(--size-ratio));
+  border-radius: calc(10px * var(--size-ratio));
+  font-family: 'SB Sans Text', sans-serif;
+  font-size: calc(24px * var(--size-ratio));
+  line-height: calc(30.1px * var(--size-ratio));
+  font-weight: 500;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  color: #ffffff;
+  background-color: #0087CD;
+}
+
+.secondary {
+  color: #ffffff;
+  background-color: #23B875;
+}

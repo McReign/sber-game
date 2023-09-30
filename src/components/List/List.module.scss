@@ -1,0 +1,14 @@
+.list {
+  list-style-type: none;
+}
+
+.item {
+  display: flex;
+
+  &::before {
+    content: ".";
+    font-size: calc(28px * var(--size-ratio));
+    line-height: 0;
+    margin: 0 calc(6px * var(--size-ratio));
+  }
+}

@@ -1,0 +1,41 @@
+.timer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'SB Sans Text', sans-serif;
+  font-weight: 500;
+  font-size: calc(42px * var(--size-ratio));
+  line-height: calc(52.67px * var(--size-ratio));
+  color: #333F48;
+}
+
+.timeItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(40px * var(--size-ratio));
+  height: calc(60px * var(--size-ratio));
+  z-index: 0;
+
+  & + & {
+    margin-left: calc(4px * var(--size-ratio));
+  }
+}
+
+.timeItemBackdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.timeItemContent {
+  z-index: 2;
+}
+
+.separator {
+  margin: 0 calc(4px * var(--size-ratio));
+}

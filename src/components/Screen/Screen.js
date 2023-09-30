@@ -1,4 +1,3 @@
-import React from 'react'
 import Logo from '../../assets/images/logo.svg'
 import styles from './Screen.module.scss'
 

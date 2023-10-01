@@ -1,0 +1,19 @@
+.overlayTimer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeItem {
+  font-family: 'SB Sans Text', sans-serif;
+  font-weight: 700;
+  font-size: calc(232px * var(--size-ratio));
+  line-height: calc(290.94px * var(--size-ratio));
+  color: #23B875;
+}

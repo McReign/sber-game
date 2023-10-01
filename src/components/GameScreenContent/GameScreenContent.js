@@ -10,15 +10,27 @@ import Image5 from "../../assets/images/effects/image4.svg";
 import {useProgress} from "../../contexts/ProgressContext";
 import {ScreenContentTemplate} from "../ScreenContentTemplate";
 import {useGame} from "../../hooks/useGame";
-import {CLICKS, TIME_FOR_CLICKS, NEXT_SCREEN_DELAY, STATUS} from "../../constants/game";
+import {CLICKS, TIME_FOR_CLICKS, NEXT_SCREEN_DELAY, STATUS, TIME_FOR_GETTING_READY} from "../../constants/game";
 import {FailPanel} from "./FailPanel";
+import {OverlayTimer} from "../OverlayTimer";
 import styles from './GameScreenContent.module.scss'
 
 export function GameScreenContent(props) {
   const {className, children} = props
   const {next} = useProgress()
-  const {timeLeft, status, clicked, failsCount, start, restart} = useGame({timeInMillis: TIME_FOR_CLICKS, clicks: CLICKS})
-  const greyscaleClassNames = cn(styles.greyscaleTarget, status !== STATUS.WIN && styles.greyscale, clicked && styles.partialGreyscale)
+  const {gettingReadyTimeLeft, timeLeft, status, clicked, failsCount, start, restart} = useGame({
+    time: TIME_FOR_CLICKS,
+    timeForGettingReady: TIME_FOR_GETTING_READY,
+    clicks: CLICKS,
+  })
+  const formattedGettingReadyTimeLeft = gettingReadyTimeLeft + 1000 >= TIME_FOR_GETTING_READY ?
+    TIME_FOR_GETTING_READY
+    : gettingReadyTimeLeft + 1000
+  const greyscaleClassNames = cn(
+    styles.greyscaleTarget,
+    status !== STATUS.WIN && styles.greyscale,
+    clicked && styles.partialGreyscale,
+  )
 
   function renderChildren() {
     const props = {status, className: greyscaleClassNames}
@@ -51,6 +63,7 @@ export function GameScreenContent(props) {
         </div>
         {status !== STATUS.FAIL && renderChildren()}
       </ScreenContentTemplate.Content>
+      {status === STATUS.GETTING_READY && <OverlayTimer time={formattedGettingReadyTimeLeft} />}
     </ScreenContentTemplate>
   )
 }

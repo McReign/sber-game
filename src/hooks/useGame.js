@@ -3,23 +3,30 @@ import {useTimer} from './useTimer'
 import {useClicker} from './useClicker'
 import {STATUS} from "../constants/game";
 
-export function useGame({timeInMillis, clicks} = {}) {
+export function useGame({time, timeForGettingReady, clicks} = {}) {
   const [failsCount, setFailsCount] = useState(0)
   const [status, setStatus] = useState(STATUS.PENDING)
-  const {timeLeft, start: startTimer, stop: stopTimer, reset: resetTimer} = useTimer(timeInMillis)
+  const {timeLeft: gettingReadyTimeLeft, start: startGettingReadyTimer, reset: resetGettingReadyTimer} = useTimer(timeForGettingReady)
+  const {timeLeft, start: startTimer, stop: stopTimer, reset: resetTimer} = useTimer(time)
   const {clicksLeft, clicked, start: startClicker, stop: stopClicker, reset: resetClicker} = useClicker(clicks)
 
-  const start = useCallback(() => {
+  const startGame = useCallback(() => {
     setStatus(STATUS.PLAYING)
     startTimer()
     startClicker()
   }, [startTimer, startClicker])
 
+  const start = useCallback(() => {
+    setStatus(STATUS.GETTING_READY)
+    startGettingReadyTimer()
+  }, [startGettingReadyTimer])
+
   const restart = useCallback(() => {
+    resetGettingReadyTimer()
     resetTimer()
     resetClicker()
     start()
-  }, [resetTimer, resetClicker, start])
+  }, [resetGettingReadyTimer, resetTimer, resetClicker, start])
 
   const handleWin = useCallback(() => {
     stopTimer()
@@ -30,6 +37,12 @@ export function useGame({timeInMillis, clicks} = {}) {
     stopTimer()
     stopClicker()
   }, [stopTimer, stopClicker])
+
+  useEffect(() => {
+    if (!gettingReadyTimeLeft) {
+      startGame()
+    }
+  }, [gettingReadyTimeLeft])
 
   useEffect(() => {
     if (!timeLeft && clicksLeft) {
@@ -51,7 +64,7 @@ export function useGame({timeInMillis, clicks} = {}) {
   }, [status])
 
   return useMemo(
-    () => ({status, timeLeft, clicked, start, restart, failsCount}),
-    [status, timeLeft, clicked, start, restart, failsCount],
+    () => ({status, gettingReadyTimeLeft, timeLeft, clicked, start, restart, failsCount}),
+    [status, gettingReadyTimeLeft, timeLeft, clicked, start, restart, failsCount],
   )
 }

@@ -8,8 +8,9 @@ export function List(props) {
   return (
     <ul className={cn(styles.list, className)}>
       {items?.map((item, index) => (
-        <Text key={index} className={styles.item} as='li' size='sm'>
-          {item}
+        <Text key={index} as='li' size='sm'>
+          <span className={styles.content}>{item}</span>
+          {index < items?.length - 1 && <br/>}
         </Text>
       ))}
     </ul>

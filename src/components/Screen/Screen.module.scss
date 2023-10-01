@@ -1,11 +1,23 @@
 .wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  overflow: auto;
+  background-color: #ffffff;
+  overflow: hidden auto;
 }
 
 .logo {
+  position: absolute;
+  top: calc(50px * var(--size-ratio));
+  left: 50%;
+  transform: translateX(-50%);
   display: block;
   width: calc(145px * var(--size-ratio));
   height: calc(39px * var(--size-ratio));
-  margin: calc(50px * var(--size-ratio)) auto 0;
+  z-index: 10;
+}
+
+.content {
+  flex-grow: 1;
 }

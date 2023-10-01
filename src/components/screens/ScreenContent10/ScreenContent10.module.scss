@@ -1,0 +1,23 @@
+.image1 {
+  margin-top: calc(11px * var(--size-ratio));
+  width: calc(376px * var(--size-ratio));
+  height: calc(345px * var(--size-ratio));
+}
+
+.winWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(43px * var(--size-ratio));
+  padding: 0 calc(20px * var(--size-ratio));
+}
+
+.notification {
+  width: calc(390px * var(--size-ratio));
+}
+
+.image2 {
+  margin-top: calc(38px * var(--size-ratio));
+  width: calc(266px * var(--size-ratio));
+  height: calc(288px * var(--size-ratio));
+}

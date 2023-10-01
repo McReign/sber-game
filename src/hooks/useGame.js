@@ -1,30 +1,57 @@
-import {useCallback, useEffect, useMemo} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 import {useTimer} from './useTimer'
 import {useClicker} from './useClicker'
+import {STATUS} from "../constants/game";
 
-export function useGame({timeInMillis, clicks, onWin, onFail} = {}) {
-  const {timeLeft, start: startTimer, stop: stopTimer} = useTimer(timeInMillis)
-  const {clicksLeft, start: startClicker, stop: stopClicker} = useClicker(clicks)
+export function useGame({timeInMillis, clicks} = {}) {
+  const [failsCount, setFailsCount] = useState(0)
+  const [status, setStatus] = useState(STATUS.PENDING)
+  const {timeLeft, start: startTimer, stop: stopTimer, reset: resetTimer} = useTimer(timeInMillis)
+  const {clicksLeft, start: startClicker, stop: stopClicker, reset: resetClicker} = useClicker(clicks)
 
   const start = useCallback(() => {
+    setStatus(STATUS.PLAYING)
     startTimer()
     startClicker()
   }, [startTimer, startClicker])
 
-  const stop = useCallback(() => {
+  const restart = useCallback(() => {
+    resetTimer()
+    resetClicker()
+    start()
+  }, [resetTimer, resetClicker, start])
+
+  const handleWin = useCallback(() => {
+    stopTimer()
+    stopClicker()
+  }, [stopTimer, stopClicker])
+
+  const handleFail = useCallback(() => {
     stopTimer()
     stopClicker()
   }, [stopTimer, stopClicker])
 
   useEffect(() => {
     if (!timeLeft && clicksLeft) {
-      onFail?.()
-      stop()
+      setStatus(STATUS.FAIL)
     } else if (!clicksLeft) {
-      onWin?.()
-      stop()
+      setStatus(STATUS.WIN)
     }
   }, [timeLeft, clicksLeft])
 
-  return useMemo(() => ({timeLeft, start, stop}), [timeLeft, start, stop])
+  useEffect(() => {
+    if (status === STATUS.WIN) {
+      handleWin()
+    }
+
+    if (status === STATUS.FAIL) {
+      setFailsCount(prev => prev + 1)
+      handleFail()
+    }
+  }, [status])
+
+  return useMemo(
+    () => ({status, timeLeft, start, restart, failsCount}),
+    [status, timeLeft, start, restart, failsCount],
+  )
 }

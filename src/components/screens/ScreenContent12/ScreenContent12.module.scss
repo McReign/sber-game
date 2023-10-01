@@ -1,0 +1,39 @@
+.image1 {
+  margin-top: calc(161px * var(--size-ratio));
+  width: calc(176px * var(--size-ratio));
+  height: calc(241px * var(--size-ratio));
+}
+
+.winWrapper {
+  position: relative;
+  margin-top: calc(51px * var(--size-ratio));
+}
+
+.image2 {
+  width: calc(367px * var(--size-ratio));
+  height: calc(387px * var(--size-ratio));
+}
+
+.image3 {
+  position: absolute;
+  top: 0;
+  left: calc(18px * var(--size-ratio));
+  width: calc(106px * var(--size-ratio));
+  height: calc(130px * var(--size-ratio));
+}
+
+.image4 {
+  position: absolute;
+  right: calc(81px * var(--size-ratio));
+  bottom: calc(77.66px * var(--size-ratio));
+  width: calc(50px * var(--size-ratio));
+  height: calc(61px * var(--size-ratio));
+}
+
+.image5 {
+  position: absolute;
+  right: calc(49px * var(--size-ratio));
+  bottom: calc(60.66px * var(--size-ratio));
+  width: calc(28px * var(--size-ratio));
+  height: calc(35px * var(--size-ratio));
+}

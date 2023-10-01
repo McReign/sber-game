@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: calc(190px * var(--size-ratio)) calc(20px * var(--size-ratio)) 0;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.contentInner {
+  padding: 0 calc(20px * var(--size-ratio));
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(50px * var(--size-ratio));
+}
+
+.panel {
+  margin-top: auto;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: calc(40px * var(--size-ratio));
+  border-bottom: none;
+}
+
+.list {
+  margin-top: calc(20px * var(--size-ratio));
+}
+
+.image1 {
+  position: absolute;
+  width: calc(391px * var(--size-ratio));
+  height: calc(303px * var(--size-ratio));
+  top: 0;
+  right: 0;
+}
+
+.image2 {
+  position: absolute;
+  width: calc(430px * var(--size-ratio));
+  height: calc(737px * var(--size-ratio));
+  bottom: 0;
+  left: 0;
+}

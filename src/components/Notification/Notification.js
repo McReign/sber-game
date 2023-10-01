@@ -2,7 +2,7 @@ import cn from 'classnames'
 import {Image} from '../Image'
 import {BackdropPanel} from '../BackdropPanel'
 import {Text} from '../Text'
-import ShortLogo from '../../assets/images/shortLogo.svg'
+import ShortLogo from '../../assets/images/logos/shortLogo.svg'
 import styles from './Notification.module.scss'
 
 export function Notification(props) {
@@ -16,7 +16,9 @@ export function Notification(props) {
       </div>
       <div className={styles.content}>
         <Image className={styles.logo} src={ShortLogo} alt='Logo' />
-        <div className={styles.textWrapper}>{children}</div>
+        <div className={styles.childrenWrapper}>
+          <div>{children}</div>
+        </div>
       </div>
     </BackdropPanel>
   )

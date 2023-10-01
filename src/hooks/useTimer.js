@@ -29,5 +29,10 @@ export function useTimer(timeInMillis) {
     isTickingRef.current = false
   }, [])
 
-  return useMemo(() => ({timeLeft, start, stop}), [timeLeft, start, stop])
+  const reset = useCallback(() => {
+    isTickingRef.current = false
+    setTimeLeft(timeInMillis)
+  }, [timeInMillis])
+
+  return useMemo(() => ({timeLeft, start, stop, reset}), [timeLeft, start, stop, reset])
 }

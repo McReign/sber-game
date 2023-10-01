@@ -1,0 +1,25 @@
+.failText {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(100px * var(--size-ratio));
+}
+
+.button {
+  &.sm {
+    width: calc(160px * var(--size-ratio));
+  }
+
+  &.md {
+    width: calc(213px * var(--size-ratio));
+  }
+
+  & + & {
+    margin-top: calc(15px * var(--size-ratio));
+  }
+}

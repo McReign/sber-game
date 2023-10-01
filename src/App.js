@@ -1,11 +1,14 @@
 import {Screen} from './components/Screen'
 import {ScreenTemplate} from './components/ScreenTemplate'
+import {ProgressProvider} from "./contexts/ProgressContext";
 
 function App() {
   return (
-    <ScreenTemplate>
-      <Screen/>
-    </ScreenTemplate>
+    <ProgressProvider>
+      <ScreenTemplate>
+        <Screen/>
+      </ScreenTemplate>
+    </ProgressProvider>
   );
 }
 

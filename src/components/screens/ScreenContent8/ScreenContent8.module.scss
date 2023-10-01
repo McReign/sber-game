@@ -1,0 +1,44 @@
+.wrapper {
+  padding: calc(240px * var(--size-ratio)) calc(40px * var(--size-ratio)) calc(40px * var(--size-ratio));
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  margin-top: calc(100px * var(--size-ratio));
+}
+
+.image1 {
+  position: absolute;
+  width: calc(391px * var(--size-ratio));
+  height: calc(303px * var(--size-ratio));
+  top: 0;
+  right: 0;
+}
+
+.image2 {
+  position: absolute;
+  width: calc(265px * var(--size-ratio));
+  height: calc(334px * var(--size-ratio));
+  bottom: 0;
+  left: 0;
+}
+
+.image3 {
+  position: absolute;
+  width: calc(312px * var(--size-ratio));
+  height: calc(293px * var(--size-ratio));
+  bottom: 0;
+  left: 0;
+}
+
+.image4 {
+  position: absolute;
+  width: calc(416px * var(--size-ratio));
+  height: calc(640px * var(--size-ratio));
+  bottom: 0;
+  right: 0;
+}

@@ -1,7 +1,7 @@
 .backdropPanel {
+  width: 100%;
   padding: calc(20px * var(--size-ratio));
   border-radius: calc(40px * var(--size-ratio));
   border: calc(1px * var(--size-ratio)) solid #FAFAFA;
   background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-  backdrop-filter: blur(18px);
 }

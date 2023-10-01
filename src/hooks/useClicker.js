@@ -26,6 +26,11 @@ export function useClicker(clicks) {
     isClickingRef.current = false
   }, [])
 
+  const reset = useCallback(() => {
+    isClickingRef.current = false
+    setClicksLeft(clicks)
+  }, [clicks])
+
   useEffect(() => {
     document.addEventListener('click', handleClick)
 
@@ -34,5 +39,5 @@ export function useClicker(clicks) {
     }
   }, [handleClick])
 
-  return useMemo(() => ({clicksLeft, start, stop}), [clicksLeft, start, stop])
+  return useMemo(() => ({clicksLeft, start, stop, reset}), [clicksLeft, start, stop, reset])
 }

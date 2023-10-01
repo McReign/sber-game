@@ -30,6 +30,10 @@
   filter: grayscale(1);
 }
 
+.partialGreyscale {
+  filter: grayscale(0.4);
+}
+
 .image1 {
   position: absolute;
   width: calc(430px * var(--size-ratio));

@@ -7,7 +7,7 @@ export function useGame({timeInMillis, clicks} = {}) {
   const [failsCount, setFailsCount] = useState(0)
   const [status, setStatus] = useState(STATUS.PENDING)
   const {timeLeft, start: startTimer, stop: stopTimer, reset: resetTimer} = useTimer(timeInMillis)
-  const {clicksLeft, start: startClicker, stop: stopClicker, reset: resetClicker} = useClicker(clicks)
+  const {clicksLeft, clicked, start: startClicker, stop: stopClicker, reset: resetClicker} = useClicker(clicks)
 
   const start = useCallback(() => {
     setStatus(STATUS.PLAYING)
@@ -51,7 +51,7 @@ export function useGame({timeInMillis, clicks} = {}) {
   }, [status])
 
   return useMemo(
-    () => ({status, timeLeft, start, restart, failsCount}),
-    [status, timeLeft, start, restart, failsCount],
+    () => ({status, timeLeft, clicked, start, restart, failsCount}),
+    [status, timeLeft, clicked, start, restart, failsCount],
   )
 }

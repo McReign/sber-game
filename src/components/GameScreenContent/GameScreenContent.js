@@ -17,11 +17,11 @@ import styles from './GameScreenContent.module.scss'
 export function GameScreenContent(props) {
   const {className, children} = props
   const {next} = useProgress()
-  const {timeLeft, status, failsCount, start, restart} = useGame({timeInMillis: TIME_FOR_CLICKS, clicks: CLICKS})
-  const shouldGreyscale = status !== STATUS.WIN
+  const {timeLeft, status, clicked, failsCount, start, restart} = useGame({timeInMillis: TIME_FOR_CLICKS, clicks: CLICKS})
+  const greyscaleClassNames = cn(styles.greyscaleTarget, status !== STATUS.WIN && styles.greyscale, clicked && styles.partialGreyscale)
 
   function renderChildren() {
-    const props = {status, className: cn(styles.greyscaleTarget, shouldGreyscale && styles.greyscale)}
+    const props = {status, className: greyscaleClassNames}
     return typeof children === 'function' ? children(props) : children
   }
 
@@ -37,7 +37,7 @@ export function GameScreenContent(props) {
 
   return (
     <ScreenContentTemplate className={cn(styles.wrapper, className)}>
-      <ScreenContentTemplate.Images className={cn(styles.greyscaleTarget, shouldGreyscale && styles.greyscale)}>
+      <ScreenContentTemplate.Images className={greyscaleClassNames}>
         <Image className={styles.image1} src={Image1} />
         <Image className={styles.image2} src={Image2} />
         <Image className={styles.image3} src={Image3} />

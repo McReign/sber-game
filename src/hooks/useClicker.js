@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {useClickListener} from "./useClickListener";
 
 export function useClicker(clicks) {
   const isClickingRef = useRef(false)
@@ -44,19 +45,9 @@ export function useClicker(clicks) {
     setClicked(false)
   }, [clicks])
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickStart)
-    document.addEventListener('touchstart', handleClickStart)
-    document.addEventListener('mouseup', handleClickEnd)
-    document.addEventListener('touchend', handleClickEnd)
+  const addClickListener = useClickListener(handleClickStart, handleClickEnd)
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickStart)
-      document.removeEventListener('touchstart', handleClickStart)
-      document.removeEventListener('mouseup', handleClickEnd)
-      document.removeEventListener('touchend', handleClickEnd)
-    }
-  }, [handleClickStart, handleClickEnd])
+  useEffect(() => addClickListener(document), [addClickListener])
 
   return useMemo(
     () => ({clicksLeft, clicked, start, stop, reset}),

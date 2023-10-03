@@ -8,6 +8,8 @@
 }
 
 .buttons {
+  display: flex;
+  flex-direction: column;
   margin-top: calc(100px * var(--size-ratio));
 }
 

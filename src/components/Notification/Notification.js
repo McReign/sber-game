@@ -2,7 +2,7 @@ import cn from 'classnames'
 import {Image} from '../Image'
 import {BackdropPanel} from '../BackdropPanel'
 import {Text} from '../Text'
-import ShortLogo from '../../assets/images/logos/shortLogo.svg'
+import ShortLogo from '../../assets/images/logos/shortLogo.png'
 import styles from './Notification.module.scss'
 
 export function Notification(props) {

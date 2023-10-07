@@ -45,3 +45,5 @@ export function ScreenContent14(props) {
     </ScreenContentTemplate>
   )
 }
+
+ScreenContent14.preloadImages = []

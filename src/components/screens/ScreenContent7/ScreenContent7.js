@@ -19,3 +19,5 @@ export function ScreenContent7(props) {
     </GameScreenContent>
   )
 }
+
+ScreenContent7.preloadImages = [Image1, Image2]

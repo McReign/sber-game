@@ -1,4 +1,3 @@
-import cn from "classnames";
 import {Panel} from "../../Panel";
 import {Text} from "../../Text";
 import {Button} from "../../Button";
@@ -40,3 +39,5 @@ export function ScreenContent2(props) {
     </ScreenContentTemplate>
   )
 }
+
+ScreenContent2.preloadImages = [Image1, Image2, Image3]

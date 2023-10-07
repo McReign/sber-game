@@ -27,3 +27,5 @@ export function ScreenContent12(props) {
     </GameScreenContent>
   )
 }
+
+ScreenContent12.preloadImages = [Image1, Image2, Image3, Image4, Image5]

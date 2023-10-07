@@ -41,6 +41,15 @@
 }
 
 :global(.#{$animation-enter}) {
+  .image1, .image2 {
+    opacity: 0;
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
   .content {
     opacity: 0;
     transform: translateX(100%);
@@ -48,15 +57,34 @@
 }
 
 :global(.#{$animation-enter-active}) {
+  .image1, .image2 {
+    opacity: 1;
+    transition: opacity $animation-duration;
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
   .content {
     opacity: 1;
     transform: translateX(0);
     transition: opacity $animation-duration, transform $animation-duration;
-    will-change: opacity, transform;
   }
 }
 
 :global(.#{$animation-exit}) {
+  .image1, .image2 {
+    opacity: 1;
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
   .content {
     opacity: 1;
     transform: translateX(0);
@@ -64,10 +92,20 @@
 }
 
 :global(.#{$animation-exit-active}) {
+  .image1, .image2 {
+    opacity: 0;
+    transition: opacity $animation-duration;
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
   .content {
     opacity: 0;
     transform: translateX(-100%);
     transition: opacity $animation-duration, transform $animation-duration;
-    will-change: opacity, transform;
   }
 }

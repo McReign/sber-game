@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import {useEffect, useMemo} from 'react'
 import {ScreenContent1} from "../screens/ScreenContent1";
 import {ScreenContent2} from "../screens/ScreenContent2";
 import {ScreenContent3} from "../screens/ScreenContent3";
@@ -13,6 +13,8 @@ import {ScreenContent11} from "../screens/ScreenContent11";
 import {ScreenContent12} from "../screens/ScreenContent12";
 import {ScreenContent13} from "../screens/ScreenContent13";
 import {ScreenContent14} from "../screens/ScreenContent14";
+import {preloadImage} from "../../utils/preloadImage";
+import {NEXT_SCREENS} from "../../constants/screens";
 
 export const SCREEN_COMPONENTS = {
   SCREEN_1: ScreenContent1,
@@ -35,6 +37,18 @@ export function ScreenContentResolver(props) {
   const {className, screen} = props
 
   const ScreenContent = useMemo(() => SCREEN_COMPONENTS[screen], [screen])
+
+  useEffect(() => {
+    const nextScreen = NEXT_SCREENS[screen]
+    const NextScreenContent = SCREEN_COMPONENTS[nextScreen]
+    const imagesToPreload = NextScreenContent?.preloadImages || []
+
+    const clears = imagesToPreload.map(preloadImage)
+
+    return () => {
+      clears.forEach(clear => clear())
+    }
+  }, [screen])
 
   return ScreenContent && <ScreenContent className={className} />
 }

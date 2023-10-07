@@ -1,4 +1,3 @@
-import cn from "classnames";
 import {Text} from "../../Text";
 import {Button} from "../../Button";
 import {Image} from "../../Image";
@@ -22,7 +21,7 @@ export function ScreenContent14(props) {
   ]
 
   return (
-    <ScreenContentTemplate className={cn(styles.wrapper, className)}>
+    <ScreenContentTemplate className={className}>
       <ScreenContentTemplate.Images>
         <Image className={styles.image1} src={Image1} />
         <Image className={styles.image2} src={Image2} />

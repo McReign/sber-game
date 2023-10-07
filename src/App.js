@@ -1,4 +1,4 @@
-import {Screen} from './components/Screen'
+import {ScreenResolver} from './components/ScreenResolver'
 import {ScreenTemplate} from './components/ScreenTemplate'
 import {ProgressProvider} from "./contexts/ProgressContext";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <ProgressProvider>
       <ScreenTemplate>
-        <Screen/>
+        <ScreenResolver/>
       </ScreenTemplate>
     </ProgressProvider>
   );

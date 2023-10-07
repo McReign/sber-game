@@ -1,7 +1,17 @@
 $target-width: 430px;
 $target-height: 932px;
+$animation-duration: 400ms;
+$animation-delay: 150ms;
+$animation-name: animation;
+$animation-enter: #{$animation-name}-enter;
+$animation-enter-active: #{$animation-name}-enter-active;
+$animation-exit: #{$animation-name}-exit;
+$animation-exit-active: #{$animation-name}-exit-active;
 
 :export {
   targetWidth: $target-width;
   targetHeight: $target-height;
+  animationDuration: $animation-duration;
+  animationDelay: $animation-delay;
+  animationName: $animation-name;
 }

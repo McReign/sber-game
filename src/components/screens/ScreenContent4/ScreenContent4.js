@@ -1,4 +1,3 @@
-import cn from "classnames";
 import {Text} from "../../Text";
 import {Button} from "../../Button";
 import {Image} from "../../Image";
@@ -15,14 +14,14 @@ export function ScreenContent4(props) {
   const {next} = useProgress()
 
   return (
-    <ScreenContentTemplate className={cn(styles.wrapper, className)}>
+    <ScreenContentTemplate className={className}>
       <ScreenContentTemplate.Images>
         <Image className={styles.image1} src={Image1} />
         <Image className={styles.image2} src={Image2} />
         <Image className={styles.image3} src={Image3} />
         <Image className={styles.image4} src={Image4} />
       </ScreenContentTemplate.Images>
-      <ScreenContentTemplate.Content>
+      <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
           <Text as='span' weight='bold'>Стажировка в Сбере — это про удобный график.</Text>
           <br/>

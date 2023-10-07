@@ -1,4 +1,3 @@
-import cn from "classnames";
 import {Title} from "../../Title";
 import {Text} from "../../Text";
 import {Button} from "../../Button";
@@ -15,13 +14,13 @@ export function ScreenContent1(props) {
   const {next} = useProgress()
 
   return (
-    <ScreenContentTemplate className={cn(styles.wrapper, className)}>
+    <ScreenContentTemplate className={className}>
       <ScreenContentTemplate.Images>
         <Image className={styles.image1} src={Image1} />
         <Image className={styles.image2} src={Image2} />
         <Image className={styles.image3} src={Image3} />
       </ScreenContentTemplate.Images>
-      <ScreenContentTemplate.Content>
+      <ScreenContentTemplate.Content className={styles.content}>
         <Title>
           Твоя карьера — в&nbsp;твоих руках
         </Title>

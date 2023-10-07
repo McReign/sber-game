@@ -48,7 +48,7 @@ export function GameScreenContent(props) {
   }, [])
 
   return (
-    <ScreenContentTemplate className={cn(styles.wrapper, className)}>
+    <ScreenContentTemplate className={className}>
       <ScreenContentTemplate.Images className={greyscaleClassNames}>
         <Image className={styles.image1} src={Image1} />
         <Image className={styles.image2} src={Image2} />

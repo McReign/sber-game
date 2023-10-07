@@ -15,13 +15,13 @@ export function ScreenContent2(props) {
   const {next} = useProgress()
 
   return (
-    <ScreenContentTemplate className={cn(styles.wrapper, className)}>
+    <ScreenContentTemplate className={className}>
       <ScreenContentTemplate.Images>
         <Image className={styles.image1} src={Image1} />
         <Image className={styles.image2} src={Image2} />
         <Image className={styles.image3} src={Image3} />
       </ScreenContentTemplate.Images>
-      <ScreenContentTemplate.Content>
+      <ScreenContentTemplate.Content className={styles.content}>
         <Panel>
           <Text className={styles.text}>
             <Text as='span' weight='bold'>Открой все 5 фактов о Sberseasons.</Text>

@@ -31,3 +31,14 @@ $min-mockup-width: $target-width + (2 * $offset);
     box-sizing: content-box;
   }
 }
+
+.logo {
+  position: absolute;
+  top: calc(50px * var(--size-ratio));
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: calc(145px * var(--size-ratio));
+  height: calc(39px * var(--size-ratio));
+  z-index: 10;
+}

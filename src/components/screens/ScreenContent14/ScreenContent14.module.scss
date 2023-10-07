@@ -1,11 +1,9 @@
-.wrapper {
+@import "../../../styles/constants";
+
+.content {
   display: flex;
   flex-direction: column;
   padding: calc(190px * var(--size-ratio)) calc(20px * var(--size-ratio)) 0;
-}
-
-.content {
-  flex-grow: 1;
 }
 
 .contentInner {
@@ -49,4 +47,118 @@
   height: calc(737px * var(--size-ratio));
   bottom: 0;
   left: 0;
+}
+
+:global(.#{$animation-enter}) {
+  .image1, .image2 {
+    opacity: 0;
+  }
+
+  .image4 {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  .contentInner {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .panel {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+:global(.#{$animation-enter-active}) {
+  .image1, .image2 {
+    opacity: 1;
+    transition: opacity $animation-duration;
+  }
+
+  .image4 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .contentInner {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .panel {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity $animation-duration, transform calc($animation-duration - $animation-delay) $animation-delay;
+  }
+}
+
+:global(.#{$animation-exit}) {
+  .image1, .image2 {
+    opacity: 1;
+  }
+
+  .image4 {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .contentInner {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .panel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:global(.#{$animation-exit-active}) {
+  .image1, .image2 {
+    opacity: 0;
+    transition: opacity $animation-duration;
+  }
+
+  .image4 {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .contentInner {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .panel {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity $animation-duration, transform calc($animation-duration - $animation-delay) $animation-delay;
+  }
 }

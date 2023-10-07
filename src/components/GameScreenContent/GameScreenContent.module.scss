@@ -1,13 +1,14 @@
-.wrapper {
+@import "../../styles/constants";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: calc(190px * var(--size-ratio)) 0 calc(30px * var(--size-ratio));
 }
 
 .playing {
   user-select: none;
-}
-
-.content {
-  align-items: center;
 }
 
 .contentInner {
@@ -72,4 +73,96 @@
   height: calc(277px * var(--size-ratio));
   bottom: 0;
   left: 0;
+}
+
+:global(.#{$animation-enter}) {
+  .image1, .image5 {
+    opacity: 0;
+  }
+
+  .image2, .image4 {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  .content {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+:global(.#{$animation-enter-active}) {
+  .image1, .image5 {
+    opacity: 1;
+    transition: opacity $animation-duration;
+  }
+
+  .image2, .image4 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .content {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+}
+
+:global(.#{$animation-exit}) {
+  .image1, .image5 {
+    opacity: 1;
+  }
+
+  .image2, .image4 {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .content {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+:global(.#{$animation-exit-active}) {
+  .image1, .image5 {
+    opacity: 0;
+    transition: opacity $animation-duration;
+  }
+
+  .image2, .image4 {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .content {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
 }

@@ -1,4 +1,6 @@
-.wrapper {
+@import "../../../styles/constants";
+
+.content {
   padding: calc(173px * var(--size-ratio)) calc(30px * var(--size-ratio)) calc(40px * var(--size-ratio));
 }
 
@@ -39,4 +41,54 @@
   height: calc(151px * var(--size-ratio));
   bottom: 0;
   left: 0;
+}
+
+:global(.#{$animation-enter}) {
+  .content {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+:global(.#{$animation-enter-active}) {
+  .content {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+}
+
+:global(.#{$animation-exit}) {
+  .image1, .image2 {
+    opacity: 1;
+  }
+
+  .image3 {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .content {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+:global(.#{$animation-exit-active}) {
+  .image1, .image2 {
+    opacity: 0;
+    transition: opacity $animation-duration;
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .content {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
 }

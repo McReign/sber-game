@@ -1,5 +1,7 @@
 import {useCallback, useLayoutEffect, useRef, useState} from 'react'
 import useResizeObserver from "use-resize-observer"
+import Logo from '../../assets/images/logos/logo.png'
+import {Image} from "../Image";
 import {getSizeRatio} from "../../utils/getSizeRatio";
 import {TARGET_WIDTH, TARGET_HEIGHT} from "../../constants/styles";
 import styles from './ScreenTemplate.module.scss'
@@ -18,8 +20,8 @@ export function ScreenTemplate(props) {
   }, [])
 
   const calculateContentSize = useCallback(() => {
-    setContentHeight(contentRef?.current?.offsetHeight)
-    setContentWidth(contentRef?.current?.offsetWidth)
+    setContentHeight(contentRef?.current?.clientHeight)
+    setContentWidth(contentRef?.current?.clientWidth)
   }, [contentRef])
 
   useLayoutEffect(() => {
@@ -35,6 +37,7 @@ export function ScreenTemplate(props) {
   return (
     <div ref={wrapperRef} className={styles.wrapper} style={{height: viewportHeight, '--size-ratio': sizeRatio}}>
       <div ref={contentRef} className={styles.content}>
+        <Image className={styles.logo} src={Logo} alt="Logo" />
         {children}
       </div>
     </div>

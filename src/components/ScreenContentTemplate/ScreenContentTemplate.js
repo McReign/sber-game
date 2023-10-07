@@ -11,7 +11,11 @@ function TemplateImages(props) {
 function TemplateContent(props) {
   const {className, children} = props
 
-  return <div className={cn(styles.content, className)}>{children}</div>
+  return (
+    <div className={styles.contentContainer}>
+      <div className={cn(styles.content, className)}>{children}</div>
+    </div>
+  )
 }
 
 export const ScreenContentTemplate = forwardRef((props, ref) => {

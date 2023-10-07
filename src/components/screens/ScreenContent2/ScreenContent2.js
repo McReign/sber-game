@@ -23,13 +23,13 @@ export function ScreenContent2(props) {
       <ScreenContentTemplate.Content className={styles.content}>
         <Panel>
           <Text className={styles.text}>
-            <Text as='span' weight='bold'>Открой все 5 фактов о Sberseasons.</Text>
+            <Text as='span' weight='bold'>Открой все 5 фактов о&nbsp;Sberseasons.</Text>
             <br/>
             <Text as='span'>Тапай по экрану как можно чаще, сколько именно раз — секрет 😉</Text>
             <br/>
-            <Text as='span'>Разомни пальцы! У тебя 7 секунд на уровень — справишься быстрее?</Text>
+            <Text as='span'>Разомни пальцы!{'\n'}У тебя 7&nbsp;секунд на&nbsp;уровень — справишься быстрее?</Text>
             <br/>
-            <Text as='span'>Давай вместе превратим унылые предрассудки в красочную реальность!</Text>
+            <Text as='span'>Давай вместе превратим унылые предрассудки в&nbsp;красочную реальность!</Text>
           </Text>
           <div className={styles.buttons}>
             <Button className={styles.button} onClick={next}>Старт</Button>

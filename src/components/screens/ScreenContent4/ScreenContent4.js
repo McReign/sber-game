@@ -23,11 +23,11 @@ export function ScreenContent4(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
-          <Text as='span' weight='bold'>Стажировка в Сбере — это про удобный график.</Text>
+          <Text as='span' weight='bold'>Стажировка в Сбере —{'\n'}это про удобный график.</Text>
           <br/>
-          <Text as='span'>Ты можешь брать выходные и работать от 20 часов в неделю, сидя в нашем современном «умном» офисе, дома или в кафе.</Text>
+          <Text as='span'>Ты можешь брать выходные и&nbsp;работать от 20 часов в неделю, сидя в&nbsp;нашем современном «умном» офисе, дома или&nbsp;в&nbsp;кафе.</Text>
           <br/>
-          <Text as='span'>Кстати, в офисе тоже можно отдохнуть: есть зоны отдыха, спортзал, баланс борды и снеки.</Text>
+          <Text as='span'>Кстати, в офисе тоже можно отдохнуть: есть зоны отдыха, спортзал, баланс борды и&nbsp;снеки.</Text>
         </Text>
         <div className={styles.buttons}>
           <Button onClick={next}>Как же удобно!</Button>

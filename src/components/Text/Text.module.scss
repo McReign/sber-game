@@ -5,6 +5,14 @@
   margin: 0;
 }
 
+.wrap {
+  white-space: pre-wrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
 .regular {
   font-weight: 400;
 }

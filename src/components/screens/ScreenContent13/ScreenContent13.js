@@ -23,9 +23,13 @@ export function ScreenContent13(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
-          <Text as='span' weight='bold'>Вечный стажер — это не про Sberseasons.</Text>
+          <Text as='span' weight='bold'>Вечный стажер —{'\n'}это не про Sberseasons.</Text>
           <br/>
-          <Text as='span'>Прояви свой потенциал за 3-6 месяцев и получи шанс перейти в штат!</Text>
+          <Text as='span'>
+            Прояви свой потенциал
+            за&nbsp;<Text as='span' wrap='nowrap'>3-6</Text>&nbsp;месяцев и&nbsp;получи шанс
+            перейти в&nbsp;штат!
+          </Text>
         </Text>
         <div className={styles.buttons}>
           <Button onClick={next}>Мне подходит!</Button>

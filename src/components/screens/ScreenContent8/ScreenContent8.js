@@ -23,9 +23,9 @@ export function ScreenContent8(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
-          <Text as='span'>Отзывчивый коллектив — это когда задаешь вопрос и получаешь развернутый ответ от нескольких кураторов!</Text>
+          <Text as='span'>Отзывчивый коллектив — это&nbsp;когда задаешь вопрос и&nbsp;получаешь развернутый ответ от&nbsp;нескольких кураторов!</Text>
           <br/>
-          <Text as='span' weight='bold'>Помни, тебя всегда поддержат. Так все и работает на Sberseasons ;)</Text>
+          <Text as='span' weight='bold'>Помни, тебя всегда поддержат. Так&nbsp;все и работает на&nbsp;Sberseasons ;)</Text>
         </Text>
         <div className={styles.buttons}>
           <Button onClick={next}>Мне нравится</Button>

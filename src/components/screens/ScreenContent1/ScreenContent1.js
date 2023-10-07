@@ -22,14 +22,14 @@ export function ScreenContent1(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Title>
-          Твоя карьера — в&nbsp;твоих руках
+          Твоя карьера —{'\n'}в&nbsp;твоих руках
         </Title>
         <Text className={styles.text}>
-          <Text as='span'>Работа не может быть идеальной, от тебя ничего не зависит, а коллеги — далеко не друзья.</Text>
+          <Text as='span'>Работа не может быть идеальной,{'\n'}от&nbsp;тебя ничего не зависит,{'\n'}а коллеги — далеко не друзья.</Text>
           <br/>
-          <Text as='span'>Кто сказал все эти глупости? Точно не мы :)</Text>
+          <Text as='span'>Кто сказал все эти глупости?{'\n'}Точно не мы :)</Text>
           <br/>
-          <Text as='span'>В Сбере всё иначе, круче и ярче! Играй и добавляй красок!</Text>
+          <Text as='span'>В Сбере всё иначе, круче и ярче!{'\n'}Играй и добавляй красок!</Text>
         </Text>
         <div className={styles.buttons}>
           <Button onClick={next}>Что нужно делать?</Button>

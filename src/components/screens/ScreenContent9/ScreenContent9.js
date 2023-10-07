@@ -23,9 +23,9 @@ export function ScreenContent9(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
-          <Text as='span'>Тебе уже открылись 3 классных факта о стажировке в Сбере.</Text>
+          <Text as='span'>Тебе уже открылись 3 классных факта о&nbsp;стажировке в&nbsp;Сбере.</Text>
           <br/>
-          <Text as='span'>Можешь прямо сейчас оставить отклик или открыть еще 2 факта.</Text>
+          <Text as='span'>Можешь прямо сейчас оставить отклик или&nbsp;открыть еще 2 факта.</Text>
         </Text>
         <div className={styles.buttons}>
           <Button className={styles.button}>Откликнуться</Button>

@@ -23,11 +23,11 @@ export function ScreenContent11(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
-          <Text as='span' weight='bold'>Ты сможешь зарабатывать до 63 000 руб. в месяц до вычета налога.</Text>
+          <Text as='span' weight='bold'>Ты сможешь зарабатывать до&nbsp;63&nbsp;000&nbsp;руб. в&nbsp;месяц до&nbsp;вычета налога.</Text>
           <br/>
-          <Text as='span'>Зарплаты хватит и на поездки, и на насыщенный досуг!</Text>
+          <Text as='span'>Зарплаты хватит и&nbsp;на&nbsp;поездки, и&nbsp;на&nbsp;насыщенный досуг!</Text>
           <br/>
-          <Text as='span'>А приятные бонусы от компании дополнят удовлетворенность своей работой.</Text>
+          <Text as='span'>А приятные бонусы от&nbsp;компании дополнят удовлетворенность своей работой.</Text>
         </Text>
         <div className={styles.buttons}>
           <Button onClick={next}>Супер</Button>

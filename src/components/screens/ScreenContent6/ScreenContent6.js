@@ -23,9 +23,9 @@ export function ScreenContent6(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Text className={styles.text}>
-          <Text as='span' weight='bold'>На стажировке ты сможешь легко совмещать работу, учебу и личную жизнь.</Text>
+          <Text as='span' weight='bold'>На стажировке ты сможешь легко совмещать работу, учебу и&nbsp;личную жизнь.</Text>
           <br/>
-          <Text as='span'>Сессия, важные пары или поездка с друзьями? На все это у тебя будут свободные дни!</Text>
+          <Text as='span'>Сессия, важные пары или поездка с&nbsp;друзьями? На все это у&nbsp;тебя будут свободные дни!</Text>
         </Text>
         <div className={styles.buttons}>
           <Button onClick={next}>Это по мне</Button>

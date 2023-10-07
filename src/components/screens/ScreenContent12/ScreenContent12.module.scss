@@ -1,3 +1,5 @@
+@import "../../../styles/constants";
+
 .image1 {
   margin-top: calc(161px * var(--size-ratio));
   width: calc(176px * var(--size-ratio));
@@ -36,4 +38,56 @@
   bottom: calc(60.66px * var(--size-ratio));
   width: calc(28px * var(--size-ratio));
   height: calc(35px * var(--size-ratio));
+}
+
+:global(.#{$animation-enter}) {
+  .image1, .winWrapper {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  .image3 {
+    transform: translate(-20%, -20%);
+  }
+
+  .image4, .image5 {
+    transform: translate(20%, 20%);
+  }
+}
+
+:global(.#{$animation-enter-active}) {
+  .image1, .winWrapper {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image3, .image4, .image5 {
+    transform: translate(0, 0);
+    transition: transform $animation-duration;
+  }
+}
+
+:global(.#{$animation-exit}) {
+  .image1, .winWrapper {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .image3, .image4, .image5 {
+    transform: translate(0, 0);
+  }
+}
+
+:global(.#{$animation-exit-active}) {
+  .image1, .winWrapper {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image3, .image4, .image5 {
+    transform: translate(0, 0);
+    transition: transform $animation-duration;
+  }
 }

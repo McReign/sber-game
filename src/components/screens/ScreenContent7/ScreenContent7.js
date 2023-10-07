@@ -1,22 +1,18 @@
-import cn from "classnames";
 import Image1 from "../../../assets/images/items/image14.png";
 import Image2 from "../../../assets/images/items/image15.png";
 import {GameScreenContent} from "../../GameScreenContent";
 import {Image} from "../../Image";
-import {STATUS} from "../../../constants/game";
 import styles from './ScreenContent7.module.scss'
 
 export function ScreenContent7(props) {
   const {className} = props
 
   return (
-    <GameScreenContent className={className}>
-      {({className, status}) => status === STATUS.WIN ? (
-        <Image className={cn(styles.image2, className)} src={Image2} />
-      ) : (
-        <Image className={cn(styles.image1, className)} src={Image1} />
-      )}
-    </GameScreenContent>
+    <GameScreenContent
+      className={className}
+      defaultContent={<Image className={styles.image1} src={Image1} />}
+      winContent={<Image className={styles.image2} src={Image2} />}
+    />
   )
 }
 

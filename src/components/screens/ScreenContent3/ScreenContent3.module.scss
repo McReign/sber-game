@@ -1,5 +1,37 @@
+@import "../../../styles/constants";
+
 .image1, .image2 {
   margin-top: calc(98px * var(--size-ratio));
   width: calc(237px * var(--size-ratio));
   height: calc(234px * var(--size-ratio));
+}
+
+:global(.#{$animation-enter}) {
+  .image1, .image2 {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+:global(.#{$animation-enter-active}) {
+  .image1, .image2 {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+}
+
+:global(.#{$animation-exit}) {
+  .image1, .image2 {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:global(.#{$animation-exit-active}) {
+  .image1, .image2 {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
 }

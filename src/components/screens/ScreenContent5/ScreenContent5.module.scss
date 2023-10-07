@@ -1,3 +1,5 @@
+@import "../../../styles/constants";
+
 .image1 {
   margin-top: calc(97px * var(--size-ratio));
   width: calc(328px * var(--size-ratio));
@@ -21,4 +23,39 @@
   right: calc(10px * var(--size-ratio));
   width: calc(74px * var(--size-ratio));
   height: calc(61px * var(--size-ratio));
+}
+
+:global(.#{$animation-enter}) {
+  .image1, .image2 {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  .image3 {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+:global(.#{$animation-enter-active}) {
+  .image1, .image2, .image3 {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+}
+
+:global(.#{$animation-exit}) {
+  .image1, .image2, .image3 {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:global(.#{$animation-exit-active}) {
+  .image1, .image2, .image3 {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
 }

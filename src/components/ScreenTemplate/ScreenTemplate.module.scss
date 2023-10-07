@@ -20,11 +20,12 @@ $min-mockup-width: $target-width + (2 * $offset);
   position: relative;
   background-color: #ffffff;
   overflow: hidden;
+  width: 100%;
   height: 100%;
-  max-width: $target-width;
-  max-height: $target-height;
 
   @media (min-width: $min-mockup-width) {
+    max-width: calc($target-width * var(--size-ratio));
+    max-height: calc($target-height * var(--size-ratio));
     border: 2px solid #000000;
     border-radius: 10px;
     box-sizing: content-box;

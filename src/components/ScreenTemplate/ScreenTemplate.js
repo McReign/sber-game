@@ -1,4 +1,4 @@
-import {useCallback, useRef, useState} from 'react'
+import {useCallback, useLayoutEffect, useRef, useState} from 'react'
 import useResizeObserver from "use-resize-observer"
 import {getSizeRatio} from "../../utils/getSizeRatio";
 import {TARGET_WIDTH, TARGET_HEIGHT} from "../../constants/styles";
@@ -8,21 +8,33 @@ export function ScreenTemplate(props) {
   const {children} = props
   const wrapperRef = useRef()
   const contentRef = useRef()
-  const [viewportHeight, setViewportHeight] = useState('100%');
-  const [contentHeight, setContentHeight] = useState(0);
-  const contentWidth = contentHeight * TARGET_WIDTH / TARGET_HEIGHT
+  const [viewportHeight, setViewportHeight] = useState();
+  const [contentHeight, setContentHeight] = useState();
+  const [contentWidth, setContentWidth] = useState();
   const sizeRatio = getSizeRatio(contentWidth, contentHeight, TARGET_WIDTH, TARGET_HEIGHT)
 
-  const handleResize = useCallback(() => {
-    setViewportHeight(document?.documentElement?.clientHeight || '100%')
-    setContentHeight(contentRef?.current?.offsetHeight || 0)
+  const calculateWrapperSize = useCallback(() => {
+    setViewportHeight(document?.documentElement?.clientHeight)
+  }, [])
+
+  const calculateContentSize = useCallback(() => {
+    setContentHeight(contentRef?.current?.offsetHeight)
+    setContentWidth(contentRef?.current?.offsetWidth)
   }, [contentRef])
 
-  useResizeObserver({ onResize: handleResize, ref: wrapperRef })
+  useLayoutEffect(() => {
+    calculateWrapperSize()
+  }, [])
+
+  useLayoutEffect(() => {
+    calculateContentSize()
+  }, [viewportHeight])
+
+  useResizeObserver({ onResize: calculateWrapperSize, ref: wrapperRef })
 
   return (
     <div ref={wrapperRef} className={styles.wrapper} style={{height: viewportHeight, '--size-ratio': sizeRatio}}>
-      <div ref={contentRef} className={styles.content} style={{width: contentWidth}}>
+      <div ref={contentRef} className={styles.content}>
         {children}
       </div>
     </div>

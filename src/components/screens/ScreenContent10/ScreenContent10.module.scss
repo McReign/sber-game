@@ -8,12 +8,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   margin-top: calc(43px * var(--size-ratio));
   padding: 0 calc(20px * var(--size-ratio));
 }
 
 .notification {
   width: calc(390px * var(--size-ratio));
+  max-width: 100%;
 }
 
 .image2 {

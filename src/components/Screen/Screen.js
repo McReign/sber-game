@@ -1,4 +1,4 @@
-import Logo from '../../assets/images/logos/logo.svg'
+import Logo from '../../assets/images/logos/logo.png'
 import styles from './Screen.module.scss'
 import {Image} from "../Image";
 import {useProgress} from "../../contexts/ProgressContext";

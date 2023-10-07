@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import cn from "classnames";
 import {Image} from "../Image";
 import {Timer} from "../Timer";
@@ -13,12 +13,15 @@ import {useGame} from "../../hooks/useGame";
 import {CLICKS, TIME_FOR_CLICKS, NEXT_SCREEN_DELAY, STATUS, TIME_FOR_GETTING_READY} from "../../constants/game";
 import {FailPanel} from "./FailPanel";
 import {OverlayTimer} from "../OverlayTimer";
+import {Ripples} from "../Ripples/Ripples";
 import styles from './GameScreenContent.module.scss'
 
 export function GameScreenContent(props) {
   const {className, children} = props
+  const containerRef = useRef()
   const {next} = useProgress()
-  const {gettingReadyTimeLeft, timeLeft, status, clicked, failsCount, start, restart} = useGame({
+  const {gettingReadyTimeLeft, timeLeft, status, failsCount, start, restart} = useGame({
+    containerRef,
     time: TIME_FOR_CLICKS,
     timeForGettingReady: TIME_FOR_GETTING_READY,
     clicks: CLICKS,
@@ -26,11 +29,7 @@ export function GameScreenContent(props) {
   const formattedGettingReadyTimeLeft = gettingReadyTimeLeft + 1000 >= TIME_FOR_GETTING_READY ?
     TIME_FOR_GETTING_READY
     : gettingReadyTimeLeft + 1000
-  const greyscaleClassNames = cn(
-    styles.greyscaleTarget,
-    status !== STATUS.WIN && styles.greyscale,
-    clicked && styles.partialGreyscale,
-  )
+  const greyscaleClassNames = cn(styles.greyscaleTarget, status !== STATUS.WIN && styles.greyscale)
 
   function renderChildren() {
     const props = {status, className: greyscaleClassNames}
@@ -48,22 +47,24 @@ export function GameScreenContent(props) {
   }, [])
 
   return (
-    <ScreenContentTemplate className={className}>
-      <ScreenContentTemplate.Images className={greyscaleClassNames}>
-        <Image className={styles.image1} src={Image1} />
-        <Image className={styles.image2} src={Image2} />
-        <Image className={styles.image3} src={Image3} />
-        <Image className={styles.image4} src={Image4} />
-        <Image className={styles.image5} src={Image5} />
-      </ScreenContentTemplate.Images>
-      <ScreenContentTemplate.Content className={cn(styles.content, status === STATUS.PLAYING && styles.playing)}>
-        <div className={styles.contentInner}>
-          <Timer time={timeLeft} />
-          {status === STATUS.FAIL && <FailPanel className={styles.failPanel} failsCount={failsCount} onRetry={restart} />}
-        </div>
-        {status !== STATUS.FAIL && renderChildren()}
-      </ScreenContentTemplate.Content>
-      {status === STATUS.GETTING_READY && <OverlayTimer time={formattedGettingReadyTimeLeft} />}
+    <ScreenContentTemplate ref={containerRef} className={className}>
+      <Ripples enabled={status === STATUS.PLAYING} containerRef={containerRef}>
+        <ScreenContentTemplate.Images className={greyscaleClassNames}>
+          <Image className={styles.image1} src={Image1} />
+          <Image className={styles.image2} src={Image2} />
+          <Image className={styles.image3} src={Image3} />
+          <Image className={styles.image4} src={Image4} />
+          <Image className={styles.image5} src={Image5} />
+        </ScreenContentTemplate.Images>
+        <ScreenContentTemplate.Content className={cn(styles.content, status === STATUS.PLAYING && styles.playing)}>
+          <div className={styles.contentInner}>
+            <Timer time={timeLeft} />
+            {status === STATUS.FAIL && <FailPanel className={styles.failPanel} failsCount={failsCount} onRetry={restart} />}
+          </div>
+          {status !== STATUS.FAIL && renderChildren()}
+        </ScreenContentTemplate.Content>
+        {status === STATUS.GETTING_READY && <OverlayTimer time={formattedGettingReadyTimeLeft} />}
+      </Ripples>
     </ScreenContentTemplate>
   )
 }

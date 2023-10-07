@@ -3,12 +3,12 @@ import {useTimer} from './useTimer'
 import {useClicker} from './useClicker'
 import {STATUS} from "../constants/game";
 
-export function useGame({time, timeForGettingReady, clicks} = {}) {
+export function useGame({containerRef, time, timeForGettingReady, clicks} = {}) {
   const [failsCount, setFailsCount] = useState(0)
   const [status, setStatus] = useState(STATUS.PENDING)
   const {timeLeft: gettingReadyTimeLeft, start: startGettingReadyTimer, reset: resetGettingReadyTimer} = useTimer(timeForGettingReady)
   const {timeLeft, start: startTimer, stop: stopTimer, reset: resetTimer} = useTimer(time)
-  const {clicksLeft, clicked, start: startClicker, stop: stopClicker, reset: resetClicker} = useClicker(clicks)
+  const {clicksLeft, clicked, start: startClicker, stop: stopClicker, reset: resetClicker} = useClicker(containerRef, clicks)
 
   const startGame = useCallback(() => {
     setStatus(STATUS.PLAYING)

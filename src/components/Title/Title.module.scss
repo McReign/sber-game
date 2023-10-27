@@ -1,31 +1,4 @@
 .title {
-  font-family: 'SB Sans Display', sans-serif;
-  font-weight: 700;
-  margin: 0;
-  white-space: pre-wrap;
-  text-transform: uppercase;
-}
-
-.primary {
-  font-size: calc(32px * var(--size-ratio));
-  line-height: calc(36px * var(--size-ratio));
-  color: #333F48;
-
-  @supports (background-clip: text) {
-    background: linear-gradient(141.86deg, #333F48 17.13%, #005987 48.88%, #6BCA54 74.86%);
-    background-clip: text;
-    color: transparent;
-  }
-}
-
-.secondary {
-  font-size: calc(24px * var(--size-ratio));
-  line-height: calc(30.79px * var(--size-ratio));
-  color: #333F48;
-
-  @supports (background-clip: text) {
-    background: linear-gradient(141.86deg, #333F48 17.13%, #005987 48.88%, #6BCA54 74.86%);
-    background-clip: text;
-    color: transparent;
-  }
+  width: calc(var(--width) * var(--size-ratio));
+  height: calc(var(--height) * var(--size-ratio));
 }

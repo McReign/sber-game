@@ -1,9 +1,17 @@
 @import "../../../styles/constants";
 
-.image1, .image2 {
-  margin-top: calc(98px * var(--size-ratio));
-  width: calc(237px * var(--size-ratio));
-  height: calc(234px * var(--size-ratio));
+.image1 {
+  margin-top: calc(53px * var(--size-ratio));
+  margin-left: calc(5.69px * var(--size-ratio));
+  width: calc(425px * var(--size-ratio));
+  height: calc(537px * var(--size-ratio));
+}
+
+.image2 {
+  margin-top: calc(40px * var(--size-ratio));
+  margin-left: calc(18px * var(--size-ratio));
+  width: calc(412px * var(--size-ratio));
+  height: calc(552px * var(--size-ratio));
 }
 
 :global(.#{$animation-enter}) {

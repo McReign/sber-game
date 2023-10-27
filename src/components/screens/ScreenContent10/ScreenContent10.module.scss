@@ -1,9 +1,12 @@
 @import "../../../styles/constants";
 
 .image1 {
-  margin-top: calc(11px * var(--size-ratio));
-  width: calc(376px * var(--size-ratio));
-  height: calc(345px * var(--size-ratio));
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(430px * var(--size-ratio));
+  height: calc(788px * var(--size-ratio));
+  transition: opacity $animation-duration;
 }
 
 .winWrapper {
@@ -20,21 +23,44 @@
   max-width: 100%;
 }
 
+.image2Wrapper {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: opacity $animation-duration;
+}
+
 .image2 {
-  margin-top: calc(38px * var(--size-ratio));
-  width: calc(266px * var(--size-ratio));
-  height: calc(288px * var(--size-ratio));
+  width: calc(430px * var(--size-ratio));
+  height: calc(649px * var(--size-ratio));
+}
+
+.image3 {
+  position: absolute;
+  right: calc(144.58px * var(--size-ratio));
+  bottom: calc(265.17px * var(--size-ratio));
+  width: calc(138px * var(--size-ratio));
+  height: calc(100px * var(--size-ratio));
+}
+
+.image4 {
+  position: absolute;
+  right: calc(164.4px * var(--size-ratio));
+  bottom: calc(272.42px * var(--size-ratio));
+  width: calc(111px * var(--size-ratio));
+  height: calc(42px * var(--size-ratio));
 }
 
 :global(.#{$animation-enter}) {
   .image1 {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) translateX(100%);
   }
 
-  .image2 {
+  .image2Wrapper {
     opacity: 0;
-    transform: scale(1.2);
+    transform: scale(1.2) translateX(100%);
   }
 
   .notification {
@@ -44,9 +70,9 @@
 }
 
 :global(.#{$animation-enter-active}) {
-  .image1, .image2 {
+  .image1, .image2Wrapper {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateX(0);
     transition: opacity $animation-duration, transform $animation-duration;
   }
 
@@ -58,9 +84,9 @@
 }
 
 :global(.#{$animation-exit}) {
-  .image1, .image2 {
+  .image1, .image2Wrapper {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateX(0);
   }
 
   .notification {
@@ -70,9 +96,15 @@
 }
 
 :global(.#{$animation-exit-active}) {
-  .image1, .image2 {
+  .image1 {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) translateX(100%);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image2Wrapper {
+    opacity: 0;
+    transform: scale(0.8) translateX(200%);
     transition: opacity $animation-duration, transform $animation-duration;
   }
 

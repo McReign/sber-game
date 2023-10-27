@@ -1,9 +1,8 @@
 .button {
-  padding: calc(10px * var(--size-ratio)) calc(20px * var(--size-ratio));
-  border-radius: calc(10px * var(--size-ratio));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'SB Sans Text', sans-serif;
-  font-size: calc(24px * var(--size-ratio));
-  line-height: calc(30.1px * var(--size-ratio));
   font-weight: 500;
   outline: none;
   border: none;
@@ -11,11 +10,31 @@
 }
 
 .primary {
-  color: #ffffff;
-  background-color: #0087CD;
+  color: #0087CD;
+  background-color: #FFFFFF;
+  padding: calc(10px * var(--size-ratio)) calc(28px * var(--size-ratio));
+  border-radius: calc(25px * var(--size-ratio));
 }
 
 .secondary {
   color: #ffffff;
-  background-color: #23B875;
+  background-color: #0087CD;
+  padding: calc(10px * var(--size-ratio)) calc(28px * var(--size-ratio));
+  border-radius: calc(25px * var(--size-ratio));
+}
+
+.tertiary {
+  color: #0087CD;
+  background-color: transparent;
+  padding: 0;
+}
+
+.sm {
+  font-size: calc(22px * var(--size-ratio));
+  line-height: calc(27.59px * var(--size-ratio));
+}
+
+.md {
+  font-size: calc(24px * var(--size-ratio));
+  line-height: calc(30.1px * var(--size-ratio));
 }

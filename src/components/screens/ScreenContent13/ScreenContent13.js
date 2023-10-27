@@ -2,11 +2,13 @@ import {Text} from "../../Text";
 import {Button} from "../../Button";
 import {Image} from "../../Image";
 import Image1 from "../../../assets/images/effects/image1.svg";
-import Image2 from "../../../assets/images/effects/image2.svg";
-import Image3 from "../../../assets/images/items/image1.svg";
-import Image4 from "../../../assets/images/items/image28.png";
+import Image2 from "../../../assets/images/effects/image3.svg";
+import Image3 from "../../../assets/images/effects/image26.png";
+import Image4 from "../../../assets/images/effects/image27.png";
 import {useProgress} from "../../../contexts/ProgressContext";
 import {ScreenContentTemplate} from "../../ScreenContentTemplate";
+import {Panel} from "../../Panel";
+import {Title} from "../../Title";
 import styles from './ScreenContent13.module.scss'
 
 export function ScreenContent13(props) {
@@ -22,15 +24,16 @@ export function ScreenContent13(props) {
         <Image className={styles.image4} src={Image4} />
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
-        <Text className={styles.text}>
-          <Text as='span' weight='bold'>Вечный стажер —{'\n'}это не про Sberseasons.</Text>
-          <br/>
-          <Text as='span'>
-            Прояви свой потенциал
-            за&nbsp;<Text as='span' wrap='nowrap'>3-6</Text>&nbsp;месяцев и&nbsp;получи шанс
-            перейти в&nbsp;штат!
+        <Panel className={styles.panel}>
+          <Title variant='secondary'>Вечный стажер&nbsp;— это не про Sberseasons.</Title>
+          <Text className={styles.textWrapper}>
+            <Text as='span'>
+              Прояви свой потенциал
+              за&nbsp;<Text as='span' wrap='nowrap'>3-6</Text>&nbsp;месяцев и&nbsp;получи шанс
+              перейти в&nbsp;штат!
+            </Text>
           </Text>
-        </Text>
+        </Panel>
         <div className={styles.buttons}>
           <Button onClick={next}>Мне подходит!</Button>
         </div>

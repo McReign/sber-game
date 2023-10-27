@@ -2,6 +2,7 @@
 
 .image1 {
   margin-top: calc(97px * var(--size-ratio));
+  margin-left: calc(51px * var(--size-ratio));
   width: calc(328px * var(--size-ratio));
   height: calc(305px * var(--size-ratio));
 }
@@ -10,6 +11,7 @@
   position: relative;
   display: flex;
   margin-top: calc(105px * var(--size-ratio));
+  margin-left: calc(51px * var(--size-ratio));
 }
 
 .image2 {

@@ -1,8 +1,18 @@
+import {createElement} from "react";
 import cn from 'classnames'
 import styles from './Title.module.scss'
 
-export function Title(props) {
-  const {className, children} = props
+const VARIANT_TO_ELEMENT = {
+  primary: 'h1',
+  secondary: 'h1',
+}
 
-  return <h1 className={cn(styles.title, className)}>{children}</h1>
+export function Title(props) {
+  const {className, variant = 'primary', children} = props
+
+  return createElement(
+    VARIANT_TO_ELEMENT[variant],
+    {className: cn(styles.title, styles[variant], className)},
+    children,
+  )
 }

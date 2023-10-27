@@ -2,11 +2,13 @@ import {Text} from "../../Text";
 import {Button} from "../../Button";
 import {Image} from "../../Image";
 import Image1 from "../../../assets/images/effects/image1.svg";
-import Image2 from "../../../assets/images/effects/image2.svg";
-import Image3 from "../../../assets/images/items/image16.svg";
-import Image4 from "../../../assets/images/items/image17.png";
+import Image2 from "../../../assets/images/effects/image3.svg";
+import Image3 from "../../../assets/images/effects/image18.png";
+import Image4 from "../../../assets/images/effects/image19.png";
 import {useProgress} from "../../../contexts/ProgressContext";
 import {ScreenContentTemplate} from "../../ScreenContentTemplate";
+import {Panel} from "../../Panel";
+import {Title} from "../../Title";
 import styles from './ScreenContent8.module.scss'
 
 export function ScreenContent8(props) {
@@ -22,11 +24,12 @@ export function ScreenContent8(props) {
         <Image className={styles.image4} src={Image4} />
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
-        <Text className={styles.text}>
-          <Text as='span'>Отзывчивый коллектив — это&nbsp;когда задаешь вопрос и&nbsp;получаешь развернутый ответ от&nbsp;нескольких кураторов!</Text>
-          <br/>
-          <Text as='span' weight='bold'>Помни, тебя всегда поддержат. Так&nbsp;все и работает на&nbsp;Sberseasons ;)</Text>
-        </Text>
+        <Panel className={styles.panel}>
+          <Text className={styles.textWrapper}>
+            <Text as='span'>Отзывчивый коллектив&nbsp;— это&nbsp;когда задаешь вопрос и&nbsp;получаешь развернутый ответ от&nbsp;нескольких кураторов!</Text>
+          </Text>
+          <Title variant='secondary'>Помни, тебя всегда поддержат.{'\n'}Так&nbsp;все и работает на&nbsp;Sberseasons ;)</Title>
+        </Panel>
         <div className={styles.buttons}>
           <Button onClick={next}>Мне нравится</Button>
         </div>

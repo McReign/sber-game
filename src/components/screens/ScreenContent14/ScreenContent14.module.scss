@@ -3,14 +3,14 @@
 .content {
   display: flex;
   flex-direction: column;
-  padding: calc(190px * var(--size-ratio)) calc(20px * var(--size-ratio)) 0;
+  padding: calc(150px * var(--size-ratio)) calc(20px * var(--size-ratio)) 0;
 }
 
 .contentInner {
   padding: 0 calc(20px * var(--size-ratio));
 }
 
-.text {
+.textWrapper {
   display: flex;
   flex-direction: column;
 }
@@ -18,7 +18,7 @@
 .buttons {
   display: flex;
   justify-content: center;
-  margin-top: calc(50px * var(--size-ratio));
+  margin-top: calc(70px * var(--size-ratio));
 }
 
 .panel {
@@ -35,8 +35,8 @@
 
 .image1 {
   position: absolute;
-  width: calc(391px * var(--size-ratio));
-  height: calc(303px * var(--size-ratio));
+  width: calc(410px * var(--size-ratio));
+  height: calc(267px * var(--size-ratio));
   top: 0;
   right: 0;
 }

@@ -1,5 +1,5 @@
-import Image1 from "../../../assets/images/items/image5.svg";
-import Image2 from "../../../assets/images/items/image6.svg";
+import Image1 from "../../../assets/images/items/image1.png";
+import Image2 from "../../../assets/images/items/image2.png";
 import {GameScreenContent} from "../../GameScreenContent";
 import {Image} from "../../Image";
 import styles from './ScreenContent3.module.scss'

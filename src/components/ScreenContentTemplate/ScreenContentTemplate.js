@@ -2,7 +2,7 @@ import cn from "classnames";
 import styles from "./ScreenContentTemplate.module.scss";
 import {forwardRef} from "react";
 
-function TemplateImages(props) {
+export const TemplateImages = (props) => {
   const {className, children} = props
 
   return <div className={cn(styles.images, className)}>{children}</div>

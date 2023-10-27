@@ -3,11 +3,10 @@ import cn from "classnames";
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 import {Image} from "../Image";
 import {Timer} from "../Timer";
-import Image1 from "../../assets/images/effects/image3.svg";
-import Image2 from "../../assets/images/items/image2.svg";
-import Image3 from "../../assets/images/items/image3.svg";
-import Image4 from "../../assets/images/items/image4.svg";
-import Image5 from "../../assets/images/effects/image4.svg";
+import Image1 from "../../assets/images/effects/image1.svg";
+import Image2 from "../../assets/images/effects/image8.svg";
+import Image3 from "../../assets/images/effects/image9.svg";
+import Image4 from "../../assets/images/effects/image10.svg";
 import {useProgress} from "../../contexts/ProgressContext";
 import {ScreenContentTemplate} from "../ScreenContentTemplate";
 import {useGame} from "../../hooks/useGame";
@@ -48,7 +47,11 @@ export function GameScreenContent(props) {
     if (status === STATUS.WIN) {
       return {
         key: 'WIN',
-        content: (
+        content: typeof winContent === 'function' ? (
+          <div className={styles.winInnerContent}>
+            {winContent(greyscaleClassNames)}
+          </div>
+        ) : (
           <div className={cn(styles.winInnerContent, greyscaleClassNames)}>
             {winContent}
           </div>
@@ -58,7 +61,11 @@ export function GameScreenContent(props) {
 
     return {
       key: 'DEFAULT',
-      content: (
+      content: typeof defaultContent === 'function' ? (
+        <div className={styles.defaultInnerContent}>
+          {defaultContent(cn(greyscaleClassNames, status === STATUS.GETTING_READY && styles.mute))}
+        </div>
+      ) : (
         <div className={cn(styles.defaultInnerContent, greyscaleClassNames, status === STATUS.GETTING_READY && styles.mute)}>
           {defaultContent}
         </div>
@@ -81,13 +88,14 @@ export function GameScreenContent(props) {
       <Ripples enabled={status === STATUS.PLAYING} containerRef={containerRef}>
         <ScreenContentTemplate.Images className={greyscaleClassNames}>
           <Image className={styles.image1} src={Image1} />
-          <Image className={styles.image2} src={Image2} />
           <Image className={styles.image3} src={Image3} />
+          <Image className={styles.image2} src={Image2} />
           <Image className={styles.image4} src={Image4} />
-          <Image className={styles.image5} src={Image5} />
         </ScreenContentTemplate.Images>
         <ScreenContentTemplate.Content className={cn(styles.content, status === STATUS.PLAYING && styles.playing)}>
-          <Timer time={timeLeft} />
+          <div className={styles.timerWrapper}>
+            <Timer time={timeLeft} />
+          </div>
           <SwitchTransition>
             <CSSTransition
               key={innerContent.key}
@@ -114,4 +122,4 @@ export function GameScreenContent(props) {
   )
 }
 
-GameScreenContent.preloadImages = [Image1, Image2, Image3, Image4, Image5]
+GameScreenContent.preloadImages = [Image1, Image2, Image3, Image4]

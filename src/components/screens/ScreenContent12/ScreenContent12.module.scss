@@ -1,14 +1,16 @@
 @import "../../../styles/constants";
 
 .image1 {
-  margin-top: calc(161px * var(--size-ratio));
+  margin-top: calc(225px * var(--size-ratio));
+  margin-left: calc(127px * var(--size-ratio));
   width: calc(176px * var(--size-ratio));
   height: calc(241px * var(--size-ratio));
 }
 
 .winWrapper {
   position: relative;
-  margin-top: calc(51px * var(--size-ratio));
+  margin-top: calc(98px * var(--size-ratio));
+  margin-left: calc(40px * var(--size-ratio));
 }
 
 .image2 {

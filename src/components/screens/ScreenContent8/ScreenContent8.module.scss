@@ -1,22 +1,32 @@
 @import "../../../styles/constants";
 
 .content {
-  padding: calc(240px * var(--size-ratio)) calc(40px * var(--size-ratio)) calc(40px * var(--size-ratio));
+  padding: calc(148px * var(--size-ratio)) calc(15px * var(--size-ratio)) calc(40px * var(--size-ratio));
 }
 
-.text {
+.panel {
+  position: relative;
+  z-index: 1;
+}
+
+.textWrapper {
   display: flex;
   flex-direction: column;
+  margin-bottom: calc(35px * var(--size-ratio));
 }
 
 .buttons {
-  margin-top: calc(100px * var(--size-ratio));
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: calc(70px * var(--size-ratio));
+  z-index: 3;
 }
 
 .image1 {
   position: absolute;
-  width: calc(391px * var(--size-ratio));
-  height: calc(303px * var(--size-ratio));
+  width: calc(410px * var(--size-ratio));
+  height: calc(267px * var(--size-ratio));
   top: 0;
   right: 0;
 }
@@ -31,18 +41,20 @@
 
 .image3 {
   position: absolute;
-  width: calc(312px * var(--size-ratio));
-  height: calc(293px * var(--size-ratio));
+  width: calc(430px * var(--size-ratio));
+  height: calc(546px * var(--size-ratio));
   bottom: 0;
   left: 0;
+  z-index: 2;
 }
 
 .image4 {
   position: absolute;
-  width: calc(416px * var(--size-ratio));
-  height: calc(640px * var(--size-ratio));
+  width: calc(430px * var(--size-ratio));
+  height: calc(589px * var(--size-ratio));
   bottom: 0;
-  right: 0;
+  left: 0;
+  z-index: 2;
 }
 
 :global(.#{$animation-enter}) {
@@ -50,17 +62,7 @@
     opacity: 0;
   }
 
-  .image4 {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-
-  .image3 {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-
-  .content {
+  .image3, .image4, .panel, .buttons {
     opacity: 0;
     transform: translateX(100%);
   }
@@ -72,19 +74,7 @@
     transition: opacity $animation-duration;
   }
 
-  .image4 {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity $animation-duration, transform $animation-duration;
-  }
-
-  .image3 {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity $animation-duration, transform $animation-duration;
-  }
-
-  .content {
+  .image3, .image4, .panel, .buttons {
     opacity: 1;
     transform: translateX(0);
     transition: opacity $animation-duration, transform $animation-duration;
@@ -96,17 +86,7 @@
     opacity: 1;
   }
 
-  .image4 {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .image3 {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .content {
+  .image3, .image4, .panel, .buttons {
     opacity: 1;
     transform: translateX(0);
   }
@@ -118,19 +98,7 @@
     transition: opacity $animation-duration;
   }
 
-  .image4 {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity $animation-duration, transform $animation-duration;
-  }
-
-  .image3 {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: opacity $animation-duration, transform $animation-duration;
-  }
-
-  .content {
+  .image3, .image4, .panel, .buttons {
     opacity: 0;
     transform: translateX(-100%);
     transition: opacity $animation-duration, transform $animation-duration;

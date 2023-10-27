@@ -2,10 +2,11 @@ import {Text} from "../../Text";
 import {Button} from "../../Button";
 import {Image} from "../../Image";
 import Image1 from "../../../assets/images/effects/image1.svg";
-import Image2 from "../../../assets/images/effects/image5.svg";
+import Image2 from "../../../assets/images/effects/image28.svg";
 import {ScreenContentTemplate} from "../../ScreenContentTemplate";
 import {BackdropPanel} from "../../BackdropPanel";
 import {List} from "../../List";
+import {openVacancies} from "../../../utils/openVacancies";
 import styles from './ScreenContent14.module.scss'
 
 export function ScreenContent14(props) {
@@ -28,13 +29,13 @@ export function ScreenContent14(props) {
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <div className={styles.contentInner}>
-          <Text className={styles.text}>
+          <Text className={styles.textWrapper}>
             <Text as='span'>Теперь ты знаешь о стажировке в&nbsp;Сбере почти всё.</Text>
             <br/>
             <Text as='span' weight='bold'>Начни карьеру вместе{'\n'}с крупнейшим работодателем прямо сейчас!</Text>
           </Text>
           <div className={styles.buttons}>
-            <Button>Откликнуться</Button>
+            <Button variant='secondary' onClick={openVacancies}>Откликнуться</Button>
           </div>
         </div>
         <BackdropPanel className={styles.panel}>

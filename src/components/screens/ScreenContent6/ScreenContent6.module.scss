@@ -49,7 +49,7 @@
 
 .image4 {
   position: absolute;
-  width: calc(430px * var(--size-ratio));
+  width: 100%;
   height: calc(594px * var(--size-ratio));
   bottom: calc(22.74px * var(--size-ratio));
   left: 0;
@@ -58,7 +58,7 @@
 
 .image5 {
   position: absolute;
-  width: calc(430px * var(--size-ratio));
+  width: 100%;
   height: calc(842px * var(--size-ratio));
   bottom: 0;
   left: 0;
@@ -70,7 +70,12 @@
     opacity: 0;
   }
 
-  .image4, .image5, .panel, .buttons {
+  .image4, .image5 {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  .panel, .buttons {
     opacity: 0;
     transform: translateX(100%);
   }

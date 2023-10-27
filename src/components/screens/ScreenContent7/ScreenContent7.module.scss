@@ -41,9 +41,15 @@
 }
 
 :global(.#{$animation-exit-active}) {
-  .image1, .image2 {
+  .image1 {
     opacity: 0;
     transform: scale(0.8);
+    transition: opacity $animation-duration, transform $animation-duration;
+  }
+
+  .image2 {
+    opacity: 0;
+    transform: scale(0.8) translateX(-100%);
     transition: opacity $animation-duration, transform $animation-duration;
   }
 }

@@ -41,7 +41,7 @@
 
 .image3 {
   position: absolute;
-  width: calc(430px * var(--size-ratio));
+  width: 100%;
   height: calc(561px * var(--size-ratio));
   bottom: 0;
   left: 0;
@@ -50,7 +50,7 @@
 
 .image4 {
   position: absolute;
-  width: calc(430px * var(--size-ratio));
+  width: 100%;
   height: calc(561px * var(--size-ratio));
   bottom: 0;
   left: 0;
@@ -62,7 +62,12 @@
     opacity: 0;
   }
 
-  .image3, .image4, .panel, .buttons {
+  .image3, .image4 {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  .panel, .buttons {
     opacity: 0;
     transform: translateX(100%);
   }

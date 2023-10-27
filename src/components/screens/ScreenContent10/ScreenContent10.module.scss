@@ -110,7 +110,7 @@
 
   .notification {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(0) translateX(-100%);
     transition: opacity $animation-duration, transform $animation-duration;
   }
 }

@@ -18,6 +18,10 @@
   margin-top: calc(70px * var(--size-ratio));
 }
 
+.button {
+  box-shadow: 12px 9px 15px 0 #0000001F;
+}
+
 .image1 {
   position: absolute;
   width: calc(410px * var(--size-ratio));
@@ -42,20 +46,12 @@
   left: 0;
 }
 
-.image4 {
-  position: absolute;
-  width: 100%;
-  height: calc(603px * var(--size-ratio));
-  bottom: 0;
-  left: 0;
-}
-
 :global(.#{$animation-enter}) {
   .image1, .image2 {
     opacity: 0;
   }
 
-  .image3, .image4 {
+  .image3 {
     opacity: 0;
     transform: translateX(-100%);
   }
@@ -72,7 +68,7 @@
     transition: opacity $animation-duration;
   }
 
-  .image3, .image4 {
+  .image3 {
     opacity: 1;
     transform: translateX(0);
     transition: opacity $animation-duration, transform $animation-duration;
@@ -90,7 +86,7 @@
     opacity: 1;
   }
 
-  .image3, .image4 {
+  .image3 {
     opacity: 1;
     transform: translateX(0);
   }
@@ -107,7 +103,7 @@
     transition: opacity $animation-duration;
   }
 
-  .image3, .image4 {
+  .image3 {
     opacity: 0;
     transform: translateX(-100%);
     transition: opacity $animation-duration, transform $animation-duration;

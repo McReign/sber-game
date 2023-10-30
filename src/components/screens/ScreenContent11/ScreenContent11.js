@@ -5,7 +5,6 @@ import Image1 from "../../../assets/images/effects/image1.png";
 import Image2 from "../../../assets/images/effects/image14.png";
 import Image3 from "../../../assets/images/effects/image15.png";
 import Image4 from "../../../assets/images/effects/image24.png";
-import Image5 from "../../../assets/images/effects/image25.png";
 import {useProgress} from "../../../contexts/ProgressContext";
 import {ScreenContentTemplate} from "../../ScreenContentTemplate";
 import {Panel} from "../../Panel";
@@ -23,7 +22,6 @@ export function ScreenContent11(props) {
         <Image className={styles.image2} src={Image2} />
         <Image className={styles.image3} src={Image3} />
         <Image className={styles.image4} src={Image4} />
-        <Image className={styles.image5} src={Image5} />
       </ScreenContentTemplate.Images>
       <ScreenContentTemplate.Content className={styles.content}>
         <Panel className={styles.panel}>
@@ -44,11 +42,11 @@ export function ScreenContent11(props) {
           </Text>
         </Panel>
         <div className={styles.buttons}>
-          <Button onClick={next}>Это по мне</Button>
+          <Button className={styles.button} onClick={next}>Это по мне</Button>
         </div>
       </ScreenContentTemplate.Content>
     </ScreenContentTemplate>
   )
 }
 
-ScreenContent11.preloadImages = [Image1, Image2, Image3, Image4, Image5]
+ScreenContent11.preloadImages = [Image1, Image2, Image3, Image4]

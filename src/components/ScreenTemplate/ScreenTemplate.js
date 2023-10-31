@@ -35,7 +35,7 @@ export function ScreenTemplate(props) {
   useResizeObserver({ onResize: calculateWrapperSize, ref: wrapperRef })
 
   return (
-    <div ref={wrapperRef} className={styles.wrapper} style={{height: viewportHeight, '--size-ratio': sizeRatio}}>
+    <div ref={wrapperRef} className={styles.wrapper} style={{height: viewportHeight, '--size-ratio': 1}}>
       <div ref={contentRef} className={styles.content}>
         <Image className={styles.logo} src={Logo} alt="Logo" />
         {children}

@@ -122,4 +122,4 @@ export function GameScreenContent(props) {
   )
 }
 
-GameScreenContent.preloadImages = [Image1, Image2, Image3, Image4]
+GameScreenContent.preloadImages = [Image1, Image2, Image3, Image4, ...FailPanel.preloadImages]

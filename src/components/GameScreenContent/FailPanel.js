@@ -2,7 +2,8 @@ import {Panel} from "../Panel";
 import {Text} from "../Text";
 import {Button} from "../Button";
 import {Title} from "../Title";
-import {openVacancies} from "../../utils/openVacancies";
+import {Image} from "../Image";
+import VacanciesQR from "../../assets/images/qrs/vacanciesQR.png";
 import {reachMetrikaGoal} from "../../utils/reachMetrikaGoal";
 import styles from './FailPanel.module.scss'
 
@@ -12,11 +13,6 @@ export function FailPanel(props) {
   function handleRetry() {
     reachMetrikaGoal('fail')
     onRetry()
-  }
-
-  function handleOpenVacancies() {
-    reachMetrikaGoal('sber_fail')
-    openVacancies()
   }
 
   if (failsCount > 1) {
@@ -38,13 +34,16 @@ export function FailPanel(props) {
           </Text>
         </Panel>
         <div className={styles.buttons}>
-          <Button className={styles.button} variant='secondary' onClick={handleOpenVacancies}>Откликнуться</Button>
-          <Button className={styles.button} variant='tertiary' size='sm' onClick={handleRetry}>
-            Ещё раз
+          <Button className={styles.button} variant='secondary' onClick={handleRetry}>Играть ещё раз</Button>
+          <Button className={styles.button} variant='tertiary' size='sm'>
+            Откликнуться тут
             <svg className={styles.icon} viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd" d="M12.3536 10.8839C11.8654 10.3957 11.8654 9.60427 12.3536 9.11612C12.8418 8.62796 13.6332 8.62796 14.1214 9.11612L20.0053 15L14.1214 20.8839C13.6332 21.372 12.8418 21.372 12.3536 20.8839C11.8654 20.3957 11.8654 19.6043 12.3536 19.1161L16.4697 15L12.3536 10.8839Z" fill="currentColor"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M19.1161 12.3539C19.6043 11.8658 20.3957 11.8658 20.8839 12.3539C21.372 12.8421 21.372 13.6335 20.8839 14.1217L15 20.0056L9.11612 14.1217C8.62796 13.6335 8.62796 12.8421 9.11612 12.3539C9.60427 11.8658 10.3957 11.8658 10.8839 12.3539L15 16.47L19.1161 12.3539Z" fill="currentColor"/>
             </svg>
           </Button>
+        </div>
+        <div className={styles.qrWrapper}>
+          <Image className={styles.qr} src={VacanciesQR} alt='QR' />
         </div>
       </div>
     )
@@ -73,3 +72,5 @@ export function FailPanel(props) {
     </div>
   )
 }
+
+FailPanel.preloadImages = [VacanciesQR]

@@ -3,7 +3,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  padding: calc(150px * var(--size-ratio)) calc(20px * var(--size-ratio)) 0;
+  padding: calc(120px * var(--size-ratio)) calc(20px * var(--size-ratio)) 0;
 }
 
 .contentInner {
@@ -15,10 +15,22 @@
   flex-direction: column;
 }
 
+.qrWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(30px * var(--size-ratio));
+}
+
+.qr {
+  width: calc(236px * var(--size-ratio));
+  height: calc(236px * var(--size-ratio));
+}
+
 .buttons {
   display: flex;
   justify-content: center;
-  margin-top: calc(70px * var(--size-ratio));
+  margin-top: calc(64px * var(--size-ratio));
 }
 
 .panel {
@@ -158,7 +170,7 @@
 
   .panel {
     opacity: 0;
-    transform: translateY(-100%);
-    transition: opacity $animation-duration, transform calc($animation-duration - $animation-delay) $animation-delay;
+    transform: translateY(100%);
+    transition: opacity $animation-duration, transform $animation-duration;
   }
 }

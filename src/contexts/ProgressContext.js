@@ -19,7 +19,11 @@ export function ProgressProvider(props) {
     setScreen(prev => NEXT_SCREENS[prev])
   }, [])
 
-  const state = useMemo(() => ({screen, next}), [screen, next])
+  const restart = useCallback(() => {
+    setScreen(SCREENS.SCREEN_1)
+  }, [])
+
+  const state = useMemo(() => ({screen, next, restart}), [screen, next, restart])
 
   return (
     <ProgressContext.Provider value={state}>

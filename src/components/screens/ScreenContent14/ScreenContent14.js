@@ -3,28 +3,27 @@ import {Button} from "../../Button";
 import {Image} from "../../Image";
 import Image1 from "../../../assets/images/effects/image1.png";
 import Image2 from "../../../assets/images/effects/image28.png";
+import VacanciesQR from "../../../assets/images/qrs/vacanciesQR.png";
 import {ScreenContentTemplate} from "../../ScreenContentTemplate";
 import {BackdropPanel} from "../../BackdropPanel";
 import {List} from "../../List";
-import {openVacancies} from "../../../utils/openVacancies";
-import {reachMetrikaGoal} from "../../../utils/reachMetrikaGoal";
+import {useProgress} from "../../../contexts/ProgressContext";
 import styles from './ScreenContent14.module.scss'
 
 export function ScreenContent14(props) {
   const {className} = props
+  const {restart} = useProgress()
 
   const listItems = [
     'Бесплатный и безлимитный психолог',
     'Сеанс групповой медитации раз в\xa0неделю',
     'Массажные кресла повсюду, чтобы\xa0размяться',
-    'СберУниверситет, Виртуальная школа и\xa0библиотеки дадут недостающие знания в\xa0новых профессиях',
     'Приставка? Или спортзал?\nВ офисе есть и то, и\xa0другое!',
     'На работу можно в тапочках — согласовывай удаленку и иногда работай из дома',
   ]
 
-  function handleOpenVacancies() {
-    reachMetrikaGoal('sber_end')
-    openVacancies()
+  function handleRestart() {
+    restart()
   }
 
   return (
@@ -40,8 +39,11 @@ export function ScreenContent14(props) {
             <br/>
             <Text as='span' weight='bold'>Начни карьеру вместе{'\n'}с крупнейшим работодателем прямо сейчас!</Text>
           </Text>
+          <div className={styles.qrWrapper}>
+            <Image className={styles.qr} src={VacanciesQR} alt='QR' />
+          </div>
           <div className={styles.buttons}>
-            <Button variant='secondary' onClick={handleOpenVacancies}>Откликнуться</Button>
+            <Button variant='secondary' onClick={handleRestart}>Играть заново</Button>
           </div>
         </div>
         <BackdropPanel className={styles.panel}>
@@ -53,4 +55,4 @@ export function ScreenContent14(props) {
   )
 }
 
-ScreenContent14.preloadImages = []
+ScreenContent14.preloadImages = [VacanciesQR]

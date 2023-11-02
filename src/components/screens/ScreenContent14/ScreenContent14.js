@@ -7,6 +7,7 @@ import {ScreenContentTemplate} from "../../ScreenContentTemplate";
 import {BackdropPanel} from "../../BackdropPanel";
 import {List} from "../../List";
 import {openVacancies} from "../../../utils/openVacancies";
+import {reachMetrikaGoal} from "../../../utils/reachMetrikaGoal";
 import styles from './ScreenContent14.module.scss'
 
 export function ScreenContent14(props) {
@@ -20,6 +21,11 @@ export function ScreenContent14(props) {
     'Приставка? Или спортзал?\nВ офисе есть и то, и\xa0другое!',
     'На работу можно в тапочках — согласовывай удаленку и иногда работай из дома',
   ]
+
+  function handleOpenVacancies() {
+    reachMetrikaGoal('sber_end')
+    openVacancies()
+  }
 
   return (
     <ScreenContentTemplate className={className}>
@@ -35,7 +41,7 @@ export function ScreenContent14(props) {
             <Text as='span' weight='bold'>Начни карьеру вместе{'\n'}с крупнейшим работодателем прямо сейчас!</Text>
           </Text>
           <div className={styles.buttons}>
-            <Button variant='secondary' onClick={openVacancies}>Откликнуться</Button>
+            <Button variant='secondary' onClick={handleOpenVacancies}>Откликнуться</Button>
           </div>
         </div>
         <BackdropPanel className={styles.panel}>

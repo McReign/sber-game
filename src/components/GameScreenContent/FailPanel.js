@@ -3,10 +3,21 @@ import {Text} from "../Text";
 import {Button} from "../Button";
 import {Title} from "../Title";
 import {openVacancies} from "../../utils/openVacancies";
+import {reachMetrikaGoal} from "../../utils/reachMetrikaGoal";
 import styles from './FailPanel.module.scss'
 
 export function FailPanel(props) {
   const {className, failsCount, onRetry} = props
+
+  function handleRetry() {
+    reachMetrikaGoal('fail')
+    onRetry()
+  }
+
+  function handleOpenVacancies() {
+    reachMetrikaGoal('sber_fail')
+    openVacancies()
+  }
 
   if (failsCount > 1) {
     return (
@@ -27,8 +38,8 @@ export function FailPanel(props) {
           </Text>
         </Panel>
         <div className={styles.buttons}>
-          <Button className={styles.button} variant='secondary' onClick={openVacancies}>Откликнуться</Button>
-          <Button className={styles.button} variant='tertiary' size='sm' onClick={onRetry}>
+          <Button className={styles.button} variant='secondary' onClick={handleOpenVacancies}>Откликнуться</Button>
+          <Button className={styles.button} variant='tertiary' size='sm' onClick={handleRetry}>
             Ещё раз
             <svg className={styles.icon} viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M12.3536 10.8839C11.8654 10.3957 11.8654 9.60427 12.3536 9.11612C12.8418 8.62796 13.6332 8.62796 14.1214 9.11612L20.0053 15L14.1214 20.8839C13.6332 21.372 12.8418 21.372 12.3536 20.8839C11.8654 20.3957 11.8654 19.6043 12.3536 19.1161L16.4697 15L12.3536 10.8839Z" fill="currentColor"/>
@@ -57,7 +68,7 @@ export function FailPanel(props) {
         </Text>
       </Panel>
       <div className={styles.buttons}>
-        <Button className={styles.button} variant='secondary' onClick={onRetry}>Ещё раз</Button>
+        <Button className={styles.button} variant='secondary' onClick={handleRetry}>Ещё раз</Button>
       </div>
     </div>
   )

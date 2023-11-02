@@ -8,12 +8,18 @@ import Image3 from "../../../assets/images/effects/image3.png";
 import Image4 from "../../../assets/images/effects/image4.png";
 import {useProgress} from "../../../contexts/ProgressContext";
 import {ScreenContentTemplate} from "../../ScreenContentTemplate";
-import styles from './ScreenContent1.module.scss'
 import {Panel} from "../../Panel";
+import {reachMetrikaGoal} from "../../../utils/reachMetrikaGoal";
+import styles from './ScreenContent1.module.scss'
 
 export function ScreenContent1(props) {
   const {className} = props
   const {next} = useProgress()
+
+  function handleNext() {
+    reachMetrikaGoal('start')
+    next()
+  }
 
   return (
     <ScreenContentTemplate className={className}>
@@ -182,7 +188,7 @@ export function ScreenContent1(props) {
           </Text>
         </Panel>
         <div className={styles.buttons}>
-          <Button className={styles.button} onClick={next}>Что нужно делать?</Button>
+          <Button className={styles.button} onClick={handleNext}>Что нужно делать?</Button>
         </div>
       </ScreenContentTemplate.Content>
     </ScreenContentTemplate>

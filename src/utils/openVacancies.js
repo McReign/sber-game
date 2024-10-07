@@ -1,3 +1,3 @@
 export function openVacancies() {
-  window.open('https://sbergraduate.ru/sberseasons-moscow-specproject/#registration', '_blank')
+  window.open('https://sbergraduate.ru/sberseasons-moscow', '_blank')
 }

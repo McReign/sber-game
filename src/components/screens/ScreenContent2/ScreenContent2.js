@@ -16,6 +16,10 @@ export function ScreenContent2(props) {
   const { next } = useProgress();
 
   function handleNext() {
+    if (window._tmr) {
+      window._tmr.push({ type: 'reachGoal', id: 3565748, goal: 'gamevkads'});
+    }
+
     reachMetrikaGoal("play");
     next();
   }
